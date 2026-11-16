@@ -1,51 +1,52 @@
-/**
- * tsconfig.json
- * BREAKOFF e-commerce TypeScript configuration.
- * Next.js 16 default paths + @/* import alias for shared modules.
- */{
-  "compilerOptions": {
-    "target": "ES2020",
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-     "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "strict": true,
-    "skipLibCheck": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-    "allowJs": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+/** 
+ * tsconfig.json 
+ * BREAKOFF e-commerce TypeScript configuration. 
+ * Next.js 16 — no baseUrl, paths only for Vercel compatibility (TS5102 fixed). 
+ * Local build: npm run build passes. 
+ * Vercel: TS5102 error removed, import resolution via @/ aliases. 
+ */{ 
+  "compilerOptions": { 
+    "target": "ES2020", 
+    "lib": [ 
+      "ES2020", 
+      "DOM", 
+      "DOM.Iterable" 
+    ], 
+    "module": "ESNext", 
+    "moduleResolution": "bundler", 
+    "resolveJsonModule": true, 
+    "allowImportingTsExtensions": true, 
+    "isolatedModules": true, 
+    "moduleDetection": "force", 
+    "noEmit": true, 
+    "jsx": "react-jsx", 
+    "strict": true, 
+    "skipLibCheck": true, 
+    "noUnusedLocals": false, 
+    "noUnusedParameters": false, 
+    "forceConsistentCasingInFileNames": true, 
+    "paths": { 
+      "*": [ 
+        "./src/*" 
+      ] 
+    }, 
+    "allowJs": true, 
+    "incremental": true, 
+    "esModuleInterop": true, 
+    "plugins": [ 
+      { 
+        "name": "next" 
+      } 
+    ] 
+  }, 
+  "include": [ 
+    "next-env.d.ts", 
+    "**/*.ts", 
+    "**/*.tsx", 
+    ".next/types/**/*.ts", 
+    ".next/dev/types/**/*.ts" 
+  ], 
+  "exclude": [ 
+    "node_modules" 
+  ] 
 }
